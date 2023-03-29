@@ -1,0 +1,5 @@
+version: 0.2
+phases:
+  build_streaming:
+    commands:
+      - cd streaming && make all

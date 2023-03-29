@@ -5,10 +5,10 @@ lint:
 	pylint --disable=R,C api/*.py
 
 test:
-	pytest
+	pytest tests
 
 build:
-	docker build -t streaming
+	docker build -t streaming .
 
 run:
 	docker run -p 8000:8000 streaming

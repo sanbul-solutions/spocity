@@ -3,7 +3,7 @@ install:
 		pip install -r requirements.txt
 lint:
 	# lint 
-
+	pylint --disable=R,C api/*.py
 test:
 	# test
 

@@ -1,0 +1,14 @@
+name: Pull request workflows
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./streaming
+    steps:
+      - name: Install test build run
+        uses: ./.github/workflows/reuse_install_test_build_run.yml

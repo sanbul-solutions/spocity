@@ -6,6 +6,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    name: Public
     steps:
-      - echo 'Public'
+      - name: Public
+      run: echo Public

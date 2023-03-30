@@ -5,8 +5,4 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./streaming
-    uses: ./.github/workflows/reuse_install_test_build_run.yml
+    uses: sanbul-solutions/spocity/.github/workflows/reuse_install_test_build_run.yml@team1

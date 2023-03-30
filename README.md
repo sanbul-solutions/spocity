@@ -1,1 +1,1 @@
-# spociy
+# spocity

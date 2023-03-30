@@ -2,7 +2,10 @@ name: Resuable workflow to install and test
 
 on:
   workflow_call:
-
+    inputs:
+      AWS_REGION: { required: true, type: string }
+      AWS_ACCESS_KEY: { required: true, type: string }
+      AWS_SECRET_KEY: { required: true, type: string }
 env:
   AWS_REGION: us-east-1 # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: streaming # set this to your Amazon ECR repository name
@@ -18,8 +21,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-access-key-id: ${{ inputs.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ inputs.AWS_SECRET_KEY }}
           aws-region: us-east-1
 
       - name: Login to Amazon ECR

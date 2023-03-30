@@ -2,10 +2,11 @@ name: Pull request workflows
 on:
   push:
     branches: ["main"]
-
+  pull_request:
+    branches: ["main"]
 jobs:
-  ci:
+  CI:
     uses: sanbul-solutions/spocity/.github/workflows/reuse_ci.yml@team1
-  publish:
+  DeployDev:
     needs: [ci]
     uses: sanbul-solutions/spocity/.github/workflows/reuse_publish.yml@team1

@@ -4,6 +4,15 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+env:
+  AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: streaming           # set this to your Amazon ECR repository name
+  ECS_SERVICE: streaming                 # set this to your Amazon ECS service name
+  ECS_CLUSTER: streaming-cluster                 # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: task_definition.json # set this to the path to your Amazon ECS task definition
+                                               # file, e.g. .aws/task-definition.json
+  CONTAINER_NAME: streaming           # set this to the name of the container in the
+                                               # containerDefinitions section of your task definition
 jobs:
   CI:
     runs-on: ubuntu-latest
@@ -37,8 +46,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ inputs.AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ inputs.AWS_SECRET_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: us-east-1
 
       - name: Login to Amazon ECR
@@ -67,8 +76,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ inputs.AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ inputs.AWS_SECRET_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: us-east-1
 
       - name: Login to Amazon ECR

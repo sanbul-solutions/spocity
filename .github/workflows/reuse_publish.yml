@@ -1,0 +1,8 @@
+name: Resuable workflow to install and test
+
+on:
+  workflow_call:
+
+jobs:
+  publish:
+    name: Public

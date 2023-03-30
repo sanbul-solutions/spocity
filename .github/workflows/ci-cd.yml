@@ -6,5 +6,6 @@ on:
 jobs:
   ci:
     uses: sanbul-solutions/spocity/.github/workflows/reuse_ci.yml@team1
-    steps:
-      - echo 'CI'
+  publish:
+    needs: [ci]
+    uses: sanbul-solutions/spocity/.github/workflows/reuse_publish.yml@team1

@@ -1,8 +1,0 @@
-name: Pull request workflows
-on:
-  pull_request:
-    branches: ["main"]
-
-jobs:
-  build:
-    uses: sanbul-solutions/spocity/.github/workflows/reuse_install_test_build_run.yml@team1

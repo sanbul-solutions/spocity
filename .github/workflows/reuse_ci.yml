@@ -1,14 +1,10 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
-name: Merge to main workflows
+name: Resuable workflow to install and test
 
 on:
-  push:
-    branches: ["main"]
+  workflow_call:
 
 jobs:
-  build:
+  install-test-build-run:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -17,8 +13,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install test build run
-        uses: sanbul-solutions/spocity/.github/workflows/reuse_install_test_build_run.yml@team1
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          make install
+      - name: Lint with flake8
+        run: |
+          make lint
+      - name: Test with pytest
+        run: |
+          make test
+      - name: Build image
+        run: |
+          make build
+      - name: Run container
+        run: |
+          make run
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1

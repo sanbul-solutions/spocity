@@ -1,0 +1,8 @@
+name: Pull request workflows
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  ci:
+    uses: sanbul-solutions/spocity/.github/workflows/reuse_ci.yml@team1

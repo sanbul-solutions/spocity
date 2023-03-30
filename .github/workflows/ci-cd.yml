@@ -7,6 +7,12 @@ on:
 jobs:
   CI:
     uses: sanbul-solutions/spocity/.github/workflows/reuse_ci.yml@team1
+    with:
+      AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
   DeployDev:
     needs: [ci]
     uses: sanbul-solutions/spocity/.github/workflows/reuse_publish.yml@team1
+    with:
+      AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}

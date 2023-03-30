@@ -11,4 +11,3 @@ jobs:
   publish:
     needs: [ci]
     uses: sanbul-solutions/spocity/.github/workflows/reuse_publish.yml@team1
-    

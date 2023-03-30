@@ -9,4 +9,6 @@ jobs:
     defaults:
       run:
         working-directory: ./streaming
-    uses: ./.github/workflows/reuse_install_test_build_run.yml
+    steps:
+      - name: Install test build run
+        uses: ./.github/workflows

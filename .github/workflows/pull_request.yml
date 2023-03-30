@@ -5,4 +5,4 @@ on:
 
 jobs:
   build:
-    uses: https://github.com/sanbul-solutions/spocity/.github/workflows/reuse_install_test_build_run.yml
+    uses: sanbul-solutions/spocity/.github/workflows/reuse_install_test_build_run.yml@v1

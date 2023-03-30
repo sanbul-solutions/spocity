@@ -1,1 +1,1 @@
-# spocit
+# spoci

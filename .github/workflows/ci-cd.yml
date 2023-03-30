@@ -51,6 +51,9 @@ jobs:
   DeployDev:
     needs: [ci]
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./streaming
     steps:
       - name: Checkout
         uses: actions/checkout@v3

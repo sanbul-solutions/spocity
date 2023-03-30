@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  install-test-build-run:
+  install-test-build-run-publish:
     runs-on: ubuntu-latest
     defaults:
       run:

@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:855301726013:task-definition/streamingTask:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:855301726013:task-definition/stream:2",
     "containerDefinitions": [
         {
-            "name": "streaming",
+            "name": "stream",
             "image": "855301726013.dkr.ecr.us-east-1.amazonaws.com/streaming:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "streaming-8000-tcp",
+                    "name": "stream-8000-tcp",
                     "containerPort": 8000,
                     "hostPort": 8000,
                     "protocol": "tcp",
@@ -21,15 +21,19 @@
             "volumesFrom": []
         }
     ],
-    "family": "streamingTask",
+    "family": "stream",
+    "taskRoleArn": "arn:aws:iam::855301726013:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::855301726013:role/ecsTaskExecutionRole",
     "networkMode": "bridge",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -42,13 +46,13 @@
     "requiresCompatibilities": [
         "EC2"
     ],
-    "cpu": "1024",
-    "memory": "3072",
+    "cpu": "512",
+    "memory": "256",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-03-30T08:56:28.846Z",
+    "registeredAt": "2023-04-03T07:05:11.535Z",
     "registeredBy": "arn:aws:iam::855301726013:root",
     "tags": []
 }
